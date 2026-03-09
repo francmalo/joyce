@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Joyce Katuki &mdash; 1942&ndash;2024</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Tenor+Sans&family=Libre+Baskerville:ital@0;1&display=swap"
+        rel="stylesheet" />
+    <style>
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        :root {
+            --bg: #f9f8f6;
+            --bg2: #f2f0ec;
+            --bg3: #eae7e1;
+            --ink: #1a1916;
+            --ink2: #3d3b37;
+            --mid: #7a776f;
+            --muted: #afa9a0;
+            --line: #d6d2cb;
+            --accent: #5c4a32;
+            --accent2: #8a7055;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'EB Garamond', serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased
+        }
+
+        ::selection {
+            background: rgba(92, 74, 50, .12)
+        }
+
+        /* ===== NAV ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            padding: 1.8rem 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all .5s ease;
+        }
+
+        nav.solid {
+            background: rgba(249, 248, 246, .96);
+            backdrop-filter: blur(8px);
+            padding: 1.2rem 4rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nl {
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: .7rem;
+            letter-spacing: .35em;
+            text-transform: uppercase;
+            color: var(--mid);
+            text-decoration: none;
+            transition: color .3s
+        }
+
+        .nl:hover {
+            color: var(--ink)
+        }
+
+        .nav-name {
+            font-family: 'EB Garamond', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--ink2);
+            letter-spacing: .02em
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none
+        }
+
+        @media(max-width:680px) {
+            .nav-links {
+                display: none
+            }
+
+            nav,
+            nav.solid {
+                padding: 1.2rem 1.6rem
+            }
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 640px;
+            display: grid;
+            place-items: center;
+            background: var(--white);
+            overflow: hidden;
+        }
+
+        /* Thin corner marks */
+        .hero::before,
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-color: var(--line);
+            border-style: solid;
+        }
+
+        .hero::before {
+            top: 3rem;
+            left: 3rem;
+            border-width: 1px 0 0 1px
+        }
+
+        .hero::after {
+            bottom: 3rem;
+            right: 3rem;
+            border-width: 0 1px 1px 0
+        }
+
+        .hero-inner {
+            text-align: center;
+            padding: 2rem;
+            max-width: 620px;
+            position: relative;
+            z-index: 1
+        }
+
+        .hero-num {
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: .62rem;
+            letter-spacing: .55em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fade .8s .2s ease forwards;
+        }
+
+        .portrait-wrap {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 2.8rem;
+            opacity: 0;
+            animation: rise .9s .4s ease forwards;
+        }
+
+        .portrait-wrap::before {
+            content: '';
+            position: absolute;
+            inset: -10px;
+            border-radius: 50%;
+            border: 1px solid var(--line);
+        }
+
+        .portrait-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: var(--bg3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            color: var(--muted);
+            overflow: hidden;
+            border: 2px solid var(--bg2);
+        }
+
+        .portrait-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%
+        }
+
+        .hero-name {
+            font-family: 'EB Garamond', serif;
+            font-size: clamp(2.6rem, 6.5vw, 5rem);
+            font-weight: 400;
+            letter-spacing: -.01em;
+            color: var(--ink);
+            line-height: 1;
+            opacity: 0;
+            animation: rise .9s .6s ease forwards;
+        }
+
+        .hero-name span {
+            display: block;
+            font-style: italic;
+            font-size: .72em;
+            color: var(--ink2);
+            margin-top: .15em
+        }
+
+        .hero-rule {
+            width: 1px;
+            height: 48px;
+            background: var(--line);
+            margin: 2rem auto;
+            opacity: 0;
+            animation: fade .8s .8s ease forwards;
+        }
+
+        .hero-dates {
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: .72rem;
+            letter-spacing: .35em;
+            color: var(--mid);
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fade .8s .9s ease forwards;
+        }
+
+        .hero-verse {
+            font-family: 'EB Garamond', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--mid);
+            line-height: 1.9;
+            margin-top: 2.2rem;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            animation: rise .9s 1.1s ease forwards;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .5rem;
+            opacity: 0;
+            animation: fade .8s 1.8s ease forwards;
+        }
+
+        .scroll-hint span {
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: .58rem;
+            letter-spacing: .45em;
+            text-transform: uppercase;
+            color: var(--muted)
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 36px;
+            background: linear-gradient(to bottom, var(--mid), transparent);
+            animation: pulse 2s ease infinite
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: .3;
+                transform: scaleY(.7)
+            }
+
+            50% {
+                opacity: .8;
+                transform: scaleY(1)
+            }
+        }
+
+        /* ===== SHARED SECTION STYLES ===== */
+        .sec {
+            position: relative;
+            z-index: 1;
+            padding: 7rem 2rem
+        }
+
+        .wrap {
+            max-width: 720px;
+            margin: 0 auto
+        }
+
+        .wrap-wide {
+            max-width: 1080px;
+            margin: 0 auto
+        }
+
+        .label {
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: .62rem;
+            letter-spacing: .55em;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-align: center;
+            margin-bottom: 1.2rem;
+            display: block;
+        }
+
+        .heading {
+            font-family: 'EB Garamond', serif;
+            font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+            font-weight: 400;
+            text-align: center;
+            color: var(--ink);
+            line-height: 1.15;
+            margin-bottom: 3.5rem;
+        }
+
+        .thin-rule {
+            width: 40px;
+            height: 1px;
+            background: var(--accent2);
+            margin: 0 auto 3.5rem;
+        }
+
+        /* ===== EULOGY ===== */
+        .eu-sec {
+            background: var(--white)
+        }
+
+        .pullquote {
+            font-family: 'EB Garamond', serif;
+            font-style: italic;
+            font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+            color: var(--ink2);
+            line-height: 1.75;
+            text-align: center;
+            max-width: 560px;
+            margin: 0 auto 3.5rem;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .pullquote::before,
+        .pullquote::after {
+            content: '"';
+            font-size: 4rem;
+            color: var(--line);
+            font-family: 'EB Garamond', serif;
+            position: absolute;
+            line-height: 1;
+        }
+
+        .pullquote::before {
+            top: -.8rem;
+            left: 0
+        }
+
+        .pullquote::after {
+            content: '"';
+            bottom: -2rem;
+            right: 0
+        }
+
+        .eu-body p {
+            font-size: clamp(1rem, 1.5vw, 1.12rem);
+            line-height: 2;
+            color: var(--ink2);
+            margin-bottom: 1.7rem;
+        }
+
+        .eu-body p:first-child::first-letter {
+            font-family: 'EB Garamond', serif;
+            font-size: 4.2rem;
+            font-weight: 500;
+            float: left;
+            line-height: .75;
+            margin: .1em .1em 0 0;
+            color: var(--accent);
+        }
+
+        /* ===== TIMELINE ===== */
+        .tl-sec {
+            background: var(--bg2)
+        }
+
+        .tl-list {
+            list-style: none;
+            max-width: 640px;
+            margin: 0 auto
+        }
+
+        .tl-item {
+            display: grid;
+            grid-template-columns: 80px 1px 1fr;
+            gap: 0 2rem;
+            padding-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity .7s ease, transform .7s ease;
+        }
+
+        .tl-item.vis {
+            opacity: 1;
+            transform: none
+        }
+
+        .tl-item:last-child {
+            padding-bottom: 0
+        }
+
+        .tl-yr {
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: .7rem;
+            letter-spacing: .15em;
+            color: var(--accent2);
+            padding-top: .15rem;
+            text-align: right;
+        }
+
+        .tl-spine {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .tl-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent2);
+            flex-shrink: 0;
+            margin-top: .2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tl-spine::after {
+            content: '';
+            flex: 1;
+            width: 1px;
+            background: var(--line);
+            margin-top: 4px;
+        }
+
+        .tl-item:last-child .tl-spine::after {
+            display: none
+        }
+
+        .tl-body {}
+
+        .tl-title {
+            font-family: 'EB Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--ink);
+            margin-bottom: .4rem;
+        }
+
+        .tl-desc {
+            font-size: .97rem;
+            line-height: 1.75;
+            color: var(--mid);
+        }
+
+        /* ===== GALLERY ===== */
+        .gal-sec {
+            background: var(--bg3);
+            padding: 7rem 2rem
+        }
+
+        .gal-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 3rem;
+            border: 1px solid var(--line);
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gtab {
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: .62rem;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            padding: .7rem 1.5rem;
+            border: none;
+            background: transparent;
+            color: var(--muted);
+            cursor: pointer;
+            transition: all .3s;
+            border-right: 1px solid var(--line);
+            white-space: nowrap;
+        }
+
+        .gtab:last-child {
+            border-right: none
+        }
+
+        .gtab:hover {
+            color: var(--ink);
+            background: rgba(92, 74, 50, .05)
+        }
+
+        .gtab.active {
+            background: var(--ink);
+            color: var(--bg)
+        }
+
+        @media(max-width:600px) {
+            .gal-tabs {
+                flex-wrap: wrap;
+                width: 100%
+            }
+
+            .gtab {
+                border-right: none;
+                border-bottom: 1px solid var(--line);
+                flex: 1 1 auto
+            }
+        }
+
+        .masonry {
+            columns: 3;
+            column-gap: .75rem
+        }
+
+        @media(max-width:780px) {
+            .masonry {
+                columns: 2
+            }
+        }
+
+        @media(max-width:460px) {
+            .masonry {
+                columns: 1
+            }
+        }
+
+        .photo {
+            break-inside: avoid;
+            margin-bottom: .75rem;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            display: block;
+            background: var(--bg2);
+        }
+
+        .photo-ph {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .4rem;
+            background: var(--bg);
+            color: var(--line);
+            font-family: 'EB Garamond', serif;
+            font-style: italic;
+            font-size: .9rem;
+            transition: transform .5s ease;
+        }
+
+        .photo img {
+            width: 100%;
+            display: block;
+            transition: transform .5s ease
+        }
+
+        .photo:hover .photo-ph,
+        .photo:hover img {
+            transform: scale(1.04)
+        }
+
+        .photo-ov {
+            position: absolute;
+            inset: 0;
+            background: rgba(26, 25, 22, .55);
+            opacity: 0;
+            transition: opacity .35s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1rem;
+        }
+
+        .photo:hover .photo-ov {
+            opacity: 1
+        }
+
+        .photo-cap {
+            font-family: 'EB Garamond', serif;
+            font-style: italic;
+            font-size: .88rem;
+            color: rgba(249, 248, 246, .9);
+            line-height: 1.3
+        }
+
+        .photo-dt {
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: .58rem;
+            letter-spacing: .2em;
+            color: rgba(249, 248, 246, .5);
+            margin-top: .2rem
+        }
+
+        /* Lightbox */
+        .lb {
+            position: fixed;
+            inset: 0;
+            z-index: 900;
+            background: rgba(26, 25, 22, .97);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s ease;
+        }
+
+        .lb.open {
+            opacity: 1;
+            pointer-events: all
+        }
+
+        .lb-wrap {
+            position: relative;
+            max-width: 88vw;
+            max-height: 88vh;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .lb-wrap img {
+            max-width: 82vw;
+            max-height: 82vh;
+            display: block
+        }
+
+        .lb-ph {
+            width: 480px;
+            max-width: 80vw;
+            height: 300px;
+            background: var(--bg2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'EB Garamond', serif;
+            font-style: italic;
+            color: var(--mid);
+            font-size: 1rem;
+            text-align: center;
+            padding: 2rem
+        }
+
+        .lb-info {
+            position: absolute;
+            bottom: -4rem;
+            left: 0;
+            right: 0;
+            text-align: center
+        }
+
+        .lb-info p {
+            font-family: 'EB Garamond', serif;
+            font-style: italic;
+            font-size: 1rem;
+            color: rgba(249, 248, 246, .7)
+        }
+
+        .lb-info span {
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: .6rem;
+            letter-spacing: .2em;
+            color: rgba(249, 248, 246, .35)
+        }
+
+        .lb-close {
+            position: absolute;
+            top: -3.2rem;
+            right: 0;
+            background: none;
+            border: none;
+            color: rgba(249, 248, 246, .5);
+            font-size: 1.6rem;
+            cursor: pointer;
+            transition: color .2s;
+            line-height: 1
+        }
+
+        .lb-close:hover {
+            color: var(--bg)
+        }
+
+        .lb-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: 1px solid rgba(249, 248, 246, .15);
+            color: rgba(249, 248, 246, .6);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all .25s;
+            font-size: 1rem;
+        }
+
+        .lb-btn:hover {
+            border-color: rgba(249, 248, 246, .5);
+            color: var(--bg)
+        }
+
+        .lb-prev {
+            left: -56px
+        }
+
+        .lb-next {
+            right: -56px
+        }
+
+        .lb-count {
+            position: absolute;
+            bottom: -6.2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: .6rem;
+            letter-spacing: .3em;
+            color: rgba(249, 248, 246, .3);
+            white-space: nowrap
+        }
+
+        @media(max-width:560px) {
+            .lb-prev {
+                left: -32px
+            }
+
+            .lb-next {
+                right: -32px
+            }
+        }
+
+        /* ===== TRIBUTES ===== */
+        .tr-sec {
+            background: var(--white)
+        }
+
+        .tr-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 1px;
+            background: var(--line);
+            border: 1px solid var(--line);
+        }
+
+        .tr-card {
+            background: var(--white);
+            padding: 2.5rem 2.2rem;
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+
+        .tr-card.vis {
+            opacity: 1;
+            transform: none
+        }
+
+        .tr-text {
+            font-family: 'EB Garamond', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--ink2);
+            margin-bottom: 1.4rem;
+        }
+
+        .tr-text::before {
+            content: open-quote;
+            color: var(--muted);
+            font-size: 1.5rem;
+            line-height: 0;
+            vertical-align: -.35rem;
+            margin-right: .1rem
+        }
+
+        .tr-by {
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: .62rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .tr-by strong {
+            color: var(--accent2);
+            font-weight: 400
+        }
+
+        /* ===== LEAVE TRIBUTE ===== */
+        .form-sec {
+            background: var(--bg2)
+        }
+
+        .form-inner {
+            max-width: 560px;
+            margin: 0 auto
+        }
+
+        .f-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem
+        }
+
+        @media(max-width:500px) {
+            .f-row {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .f-field {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            margin-bottom: 2rem
+        }
+
+        .f-field label {
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: .62rem;
+            letter-spacing: .4em;
+            text-transform: uppercase;
+            color: var(--accent2);
+        }
+
+        .f-field input,
+        .f-field textarea {
+            border: none;
+            border-bottom: 1px solid var(--line);
+            background: transparent;
+            padding: .7rem 0;
+            font-family: 'EB Garamond', serif;
+            font-size: 1.05rem;
+            color: var(--ink);
+            outline: none;
+            transition: border-color .3s;
+            resize: none;
+            width: 100%;
+        }
+
+        .f-field input:focus,
+        .f-field textarea:focus {
+            border-color: var(--accent2)
+        }
+
+        .f-field input::placeholder,
+        .f-field textarea::placeholder {
+            color: var(--line);
+            font-style: italic
+        }
+
+        .f-btn {
+            display: block;
+            margin: 0 auto;
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: .62rem;
+            letter-spacing: .4em;
+            text-transform: uppercase;
+            color: var(--white);
+            background: var(--ink);
+            border: none;
+            padding: 1rem 3rem;
+            cursor: pointer;
+            transition: all .3s;
+        }
+
+        .f-btn:hover {
+            background: var(--accent);
+            letter-spacing: .5em
+        }
+
+        .f-ok {
+            display: none;
+            text-align: center;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--accent2);
+            padding: 2rem
+        }
+
+        .f-ok.show {
+            display: block;
+            animation: rise .6s ease forwards
+        }
+
+        /* ===== SERVICE ===== */
+        .sv-sec {
+            background: var(--ink)
+        }
+
+        .sv-sec .label {
+            color: rgba(175, 169, 160, .6)
+        }
+
+        .sv-sec .heading {
+            color: var(--bg)
+        }
+
+        .sv-sec .thin-rule {
+            background: rgba(138, 112, 85, .6)
+        }
+
+        .sv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            border-top: 1px solid rgba(255, 255, 255, .06);
+            border-left: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        .sv-card {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, .06);
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            transition: background .3s;
+        }
+
+        .sv-card:hover {
+            background: rgba(255, 255, 255, .03)
+        }
+
+        .sv-icon {
+            font-size: 1.4rem;
+            opacity: .4;
+            display: block;
+            margin-bottom: 1.2rem
+        }
+
+        .sv-lbl {
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: .6rem;
+            letter-spacing: .4em;
+            text-transform: uppercase;
+            color: rgba(138, 112, 85, .8);
+            margin-bottom: .8rem;
+            display: block
+        }
+
+        .sv-val {
+            font-family: 'EB Garamond', serif;
+            font-size: 1.15rem;
+            color: rgba(249, 248, 246, .75);
+            line-height: 1.65
+        }
+
+        .sv-note {
+            text-align: center;
+            margin-top: 4rem;
+            font-style: italic;
+            font-size: 1rem;
+            color: rgba(175, 169, 160, .55);
+            line-height: 1.9
+        }
+
+        .sv-note strong {
+            color: rgba(138, 112, 85, .7);
+            font-weight: 400
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--bg2);
+            text-align: center;
+            padding: 5rem 2rem 3rem
+        }
+
+        .f-logo {
+            font-family: 'EB Garamond', serif;
+            font-style: italic;
+            font-size: 2rem;
+            color: var(--ink);
+            display: block;
+            margin-bottom: .3rem
+        }
+
+        .f-years {
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: .65rem;
+            letter-spacing: .45em;
+            color: var(--muted);
+            display: block;
+            margin-bottom: 2.5rem
+        }
+
+        .f-verse {
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--mid);
+            max-width: 440px;
+            margin: 0 auto 3rem;
+            line-height: 1.95
+        }
+
+        .f-ref {
+            display: block;
+            font-style: normal;
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: .62rem;
+            letter-spacing: .2em;
+            color: var(--muted);
+            margin-top: .4rem
+        }
+
+        .f-credit {
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: .6rem;
+            letter-spacing: .2em;
+            color: var(--muted);
+            opacity: .45;
+            border-top: 1px solid var(--line);
+            padding-top: 2rem;
+            margin-top: 2rem
+        }
+
+        /* ===== REVEALS ===== */
+        .rv {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity .8s ease, transform .8s ease
+        }
+
+        .rv.vis {
+            opacity: 1;
+            transform: none
+        }
+
+        .rvl {
+            opacity: 0;
+            transform: translateX(-18px);
+            transition: opacity .8s ease, transform .8s ease
+        }
+
+        .rvl.vis {
+            opacity: 1;
+            transform: none
+        }
+
+        /* ===== KEYFRAMES ===== */
+        @keyframes fade {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(20px)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        @media(max-width:580px) {
+
+            .sec,
+            .gal-sec,
+            .sv-sec {
+                padding: 5rem 1.4rem
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav id="nav">
+        <span class="nav-name">Joyce Katuki </span>
+        <ul class="nav-links">
+            <li><a class="nl" href="#eulogy">Eulogy</a></li>
+            <li><a class="nl" href="#timeline">Life</a></li>
+            <li><a class="nl" href="#gallery">Gallery</a></li>
+            <li><a class="nl" href="#tributes">Tributes</a></li>
+            <li><a class="nl" href="#service">Service</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-inner">
+            <p class="hero-num">1942 &nbsp;&mdash;&nbsp; 2024</p>
+
+            <div class="portrait-wrap">
+                <div class="portrait-img">
+                    <!-- Replace with: <img src="photo.jpg" alt="Joyce"> -->
+                    &#10022;
+                </div>
+            </div>
+
+            <h1 class="hero-name">
+                Joyce 
+                <span>Katuki, Beloved</span>
+            </h1>
+
+            <div class="hero-rule"></div>
+            <p class="hero-dates">March 4, 1942 &ensp;&middot;&ensp; February 17, 2024</p>
+
+            <p class="hero-verse">
+                "She did not simply pass through this world &mdash;<br>
+                she illuminated it, one quiet act of grace at a time."
+            </p>
+        </div>
+        <div class="scroll-hint">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- EULOGY -->
+    <section class="sec eu-sec" id="eulogy">
+        <div class="wrap">
+            <span class="label rv">Eulogy</span>
+            <h2 class="heading rv">A Life of Grace &amp; Purpose</h2>
+            <div class="thin-rule rv"></div>
+
+            <p class="pullquote rv">
+                She made the world feel safer, kinder, and more worth living in &mdash; simply by being in it.
+            </p>
+
+            <div class="eu-body">
+                <p>Joyce Katuki came into this world on a bright March morning, the youngest of four
+                    children born to Thomas and Clara  in the rolling hills of Vermont. From her earliest days
+                    she carried a warmth that made every room feel smaller and more intimate &mdash; a gift she never
+                    once withheld.</p>
+                <p>She trained as a schoolteacher and spent thirty-two faithful years shaping young minds at Millbrook
+                    Elementary, where generations of children learned not only to read and multiply, but to be kind, to
+                    be curious, and to be brave. Parents who once sat in her classroom brought their own children to
+                    her, and she greeted each small face with the same unhurried smile that had never aged a single day.
+                </p>
+                <p>Beyond the classroom she was a devoted wife to Harold for fifty-one years, a mother who always
+                    listened first and spoke second, and a grandmother whose cookie jar was never empty and whose back
+                    door was forever unlocked. Her garden was legendary &mdash; a riot of dahlias and sweet peas she
+                    tended before dawn, while the rest of the world still slept.</p>
+                <p>In her final years, even as her body grew quieter, her spirit refused any such diminishment. She
+                    knitted blankets for the hospital, wrote long letters by hand, and laughed &mdash; genuinely and
+                    completely &mdash; at the smallest of pleasures. She taught us, through the simple testimony of her
+                    days, that an extraordinary life need not be a loud one.</p>
+                <p>We do not mourn her passing so much as we celebrate the extraordinary privilege of having known her.
+                    Joyce did not leave this world smaller; she left it richer, tenderer, better. And we carry her
+                    forward in every act of gentleness we choose to make our own.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="sec tl-sec" id="timeline">
+        <div class="wrap">
+            <span class="label rv">Life Story</span>
+            <h2 class="heading rv">Milestones &amp; Memories</h2>
+            <div class="thin-rule rv"></div>
+
+            <ul class="tl-list">
+                <li class="tl-item">
+                    <p class="tl-yr">1942</p>
+                    <div class="tl-spine">
+                        <div class="tl-dot"></div>
+                    </div>
+                    <div class="tl-body">
+                        <p class="tl-title">Born in Burlington, Vermont</p>
+                        <p class="tl-desc">The fourth child of Thomas and Clara, Joyce arrived on a snow-dusted March
+                            morning. Her father said she was smiling before the doctor had finished counting her
+                            fingers.</p>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <p class="tl-yr">1964</p>
+                    <div class="tl-spine">
+                        <div class="tl-dot"></div>
+                    </div>
+                    <div class="tl-body">
+                        <p class="tl-title">Graduated from University of Vermont</p>
+                        <p class="tl-desc">Earned her Bachelor of Education with highest honours. Her thesis on
+                            childhood literacy was cited by the state board as a model of compassionate pedagogy.</p>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <p class="tl-yr">1967</p>
+                    <div class="tl-spine">
+                        <div class="tl-dot"></div>
+                    </div>
+                    <div class="tl-body">
+                        <p class="tl-title">Married Harold James </p>
+                        <p class="tl-desc">A June wedding beneath the oak trees her father had planted. Harold called
+                            the day perfect; Joyce said the cake was slightly too sweet &mdash; and she was probably
+                            right.</p>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <p class="tl-yr">1970&ndash;2002</p>
+                    <div class="tl-spine">
+                        <div class="tl-dot"></div>
+                    </div>
+                    <div class="tl-body">
+                        <p class="tl-title">Thirty-Two Years at Millbrook Elementary</p>
+                        <p class="tl-desc">She taught four hundred and twelve children by her own careful count. Three
+                            became doctors, one a novelist &mdash; all remembered her name for the rest of their lives.
+                        </p>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <p class="tl-yr">1994</p>
+                    <div class="tl-spine">
+                        <div class="tl-dot"></div>
+                    </div>
+                    <div class="tl-body">
+                        <p class="tl-title">Vermont Teacher of the Year</p>
+                        <p class="tl-desc">Recognised statewide for exceptional contribution to early-childhood
+                            education. She used every penny of the award to buy books for the school library.</p>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <p class="tl-yr">2017</p>
+                    <div class="tl-spine">
+                        <div class="tl-dot"></div>
+                    </div>
+                    <div class="tl-body">
+                        <p class="tl-title">Golden Wedding Anniversary</p>
+                        <p class="tl-desc">A quiet celebration surrounded by children, grandchildren, and the oak trees
+                            under which she and Harold had made their vows fifty years earlier.</p>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <p class="tl-yr">2024</p>
+                    <div class="tl-spine">
+                        <div class="tl-dot"></div>
+                    </div>
+                    <div class="tl-body">
+                        <p class="tl-title">Returned to the Light</p>
+                        <p class="tl-desc">Peacefully, at home, held by family. Her final words were a quiet thank you
+                            &mdash; entirely characteristic of a woman who spent her whole life grateful.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gal-sec" id="gallery">
+        <div class="wrap-wide">
+            <span class="label rv">Photographs</span>
+            <h2 class="heading rv">A Gallery of Moments</h2>
+            <div class="thin-rule rv"></div>
+
+            <div class="gal-tabs rv" id="gtabs">
+                <button class="gtab active" data-f="all">All</button>
+                <button class="gtab" data-f="early">Early Life</button>
+                <button class="gtab" data-f="family">Family</button>
+                <button class="gtab" data-f="work">Teaching</button>
+                <button class="gtab" data-f="later">Later Years</button>
+            </div>
+
+            <div class="masonry rv" id="mg">
+                <div class="photo" data-cat="early" data-cap="Childhood Summer" data-date="Vermont, 1950">
+                    <div class="photo-ph" style="aspect-ratio:4/5"><svg width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1">
+                            <rect x="3" y="3" width="18" height="18" rx="1" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <path d="m21 15-5-5L5 21" />
+                        </svg><span>Early Years</span></div>
+                    <div class="photo-ov">
+                        <p class="photo-cap">Childhood Summer</p><span class="photo-dt">Vermont, 1950</span>
+                    </div>
+                </div>
+                <div class="photo" data-cat="early" data-cap="Young Joyce" data-date="Burlington, 1958">
+                    <div class="photo-ph" style="aspect-ratio:3/4"><svg width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1">
+                            <rect x="3" y="3" width="18" height="18" rx="1" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <path d="m21 15-5-5L5 21" />
+                        </svg><span>Young Joyce</span></div>
+                    <div class="photo-ov">
+                        <p class="photo-cap">Young Joyce</p><span class="photo-dt">Burlington, 1958</span>
+                    </div>
+                </div>
+                <div class="photo" data-cat="family" data-cap="The Wedding Day" data-date="June 14, 1967">
+                    <div class="photo-ph" style="aspect-ratio:4/3"><svg width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1">
+                            <rect x="3" y="3" width="18" height="18" rx="1" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <path d="m21 15-5-5L5 21" />
+                        </svg><span>Wedding Day</span></div>
+                    <div class="photo-ov">
+                        <p class="photo-cap">The Wedding Day</p><span class="photo-dt">June 14, 1967</span>
+                    </div>
+                </div>
+                <div class="photo" data-cat="work" data-cap="First Day at Millbrook" data-date="September, 1970">
+                    <div class="photo-ph" style="aspect-ratio:5/6"><svg width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1">
+                            <rect x="3" y="3" width="18" height="18" rx="1" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <path d="m21 15-5-5L5 21" />
+                        </svg><span>First Day Teaching</span></div>
+                    <div class="photo-ov">
+                        <p class="photo-cap">First Day at Millbrook</p><span class="photo-dt">September, 1970</span>
+                    </div>
+                </div>
+                <div class="photo" data-cat="family" data-cap="Christmas Morning" data-date="1979">
+                    <div class="photo-ph" style="aspect-ratio:3/2"><svg width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1">
+                            <rect x="3" y="3" width="18" height="18" rx="1" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <path d="m21 15-5-5L5 21" />
+                        </svg><span>Christmas Morning</span></div>
+                    <div class="photo-ov">
+                        <p class="photo-cap">Christmas Morning</p><span class="photo-dt">1979</span>
+                    </div>
+                </div>
+                <div class="photo" data-cat="work" data-cap="Teacher of the Year" data-date="1994">
+                    <div class="photo-ph" style="aspect-ratio:4/3"><svg width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1">
+                            <rect x="3" y="3" width="18" height="18" rx="1" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <path d="m21 15-5-5L5 21" />
+                        </svg><span>Teacher of the Year</span></div>
+                    <div class="photo-ov">
+                        <p class="photo-cap">Teacher of the Year</p><span class="photo-dt">1994</span>
+                    </div>
+                </div>
+                <div class="photo" data-cat="later" data-cap="The Garden in Bloom" data-date="Summer, 2010">
+                    <div class="photo-ph" style="aspect-ratio:3/4"><svg width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1">
+                            <rect x="3" y="3" width="18" height="18" rx="1" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <path d="m21 15-5-5L5 21" />
+                        </svg><span>The Garden</span></div>
+                    <div class="photo-ov">
+                        <p class="photo-cap">The Garden in Bloom</p><span class="photo-dt">Summer, 2010</span>
+                    </div>
+                </div>
+                <div class="photo" data-cat="family" data-cap="Thanksgiving Gathering" data-date="2019">
+                    <div class="photo-ph" style="aspect-ratio:16/9"><svg width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1">
+                            <rect x="3" y="3" width="18" height="18" rx="1" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <path d="m21 15-5-5L5 21" />
+                        </svg><span>Thanksgiving</span></div>
+                    <div class="photo-ov">
+                        <p class="photo-cap">Thanksgiving Gathering</p><span class="photo-dt">2019</span>
+                    </div>
+                </div>
+                <div class="photo" data-cat="later" data-cap="Golden Anniversary" data-date="2017">
+                    <div class="photo-ph" style="aspect-ratio:4/5"><svg width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1">
+                            <rect x="3" y="3" width="18" height="18" rx="1" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <path d="m21 15-5-5L5 21" />
+                        </svg><span>Golden Anniversary</span></div>
+                    <div class="photo-ov">
+                        <p class="photo-cap">Golden Anniversary</p><span class="photo-dt">2017</span>
+                    </div>
+                </div>
+                <div class="photo" data-cat="later" data-cap="Final Winter" data-date="Vermont, 2023">
+                    <div class="photo-ph" style="aspect-ratio:3/2"><svg width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1">
+                            <rect x="3" y="3" width="18" height="18" rx="1" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <path d="m21 15-5-5L5 21" />
+                        </svg><span>Final Winter</span></div>
+                    <div class="photo-ov">
+                        <p class="photo-cap">Final Winter</p><span class="photo-dt">Vermont, 2023</span>
+                    </div>
+                </div>
+            </div>
+            <p class="rv"
+                style="text-align:center;margin-top:2rem;font-style:italic;color:var(--muted);font-size:.9rem">Replace
+                placeholder tiles with your photographs. Click any to enlarge.</p>
+        </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div class="lb" id="lb" role="dialog" aria-modal="true">
+        <div class="lb-wrap">
+            <button class="lb-close" id="lbx">&times;</button>
+            <button class="lb-btn lb-prev" id="lbp">&#8592;</button>
+            <div id="lbm"></div>
+            <button class="lb-btn lb-next" id="lbn">&#8594;</button>
+            <div class="lb-info" id="lbi"></div>
+            <div class="lb-count" id="lbc"></div>
+        </div>
+    </div>
+
+    <!-- TRIBUTES -->
+    <section class="sec tr-sec" id="tributes">
+        <div class="wrap-wide">
+            <span class="label rv">In Their Words</span>
+            <h2 class="heading rv">Tributes &amp; Remembrances</h2>
+            <div class="thin-rule rv"></div>
+
+            <div class="tr-grid" id="tg">
+                <div class="tr-card">
+                    <p class="tr-text">She taught me that patience is not weakness &mdash; it is the most radical form
+                        of love. I think of her every time I choose to listen rather than speak.</p>
+                    <p class="tr-by">&mdash; <strong>James Harlow</strong>, Former Student, 1985</p>
+                </div>
+                <div class="tr-card">
+                    <p class="tr-text">Fifty-one years beside her felt like a privilege I was never quite worthy of. She
+                        made ordinary Tuesdays feel like something worth remembering.</p>
+                    <p class="tr-by">&mdash; <strong>Harold </strong>, Husband</p>
+                </div>
+                <div class="tr-card">
+                    <p class="tr-text">Grandma's house smelled of lavender and cinnamon and something I have never been
+                        able to name. I think it was simply her &mdash; the warmth she gave off like a second sun.</p>
+                    <p class="tr-by">&mdash; <strong>Sophie </strong>, Granddaughter</p>
+                </div>
+                <div class="tr-card">
+                    <p class="tr-text">She was the kind of neighbour who left soup on your doorstep before you even knew
+                        you needed it. Our street has felt colder this winter.</p>
+                    <p class="tr-by">&mdash; <strong>Eleanor Danes</strong>, Neighbour &amp; Friend</p>
+                </div>
+                <div class="tr-card">
+                    <p class="tr-text">In thirty years of teaching beside her, I never once heard her speak unkindly of
+                        a single child. Not one. That is its own kind of miracle.</p>
+                    <p class="tr-by">&mdash; <strong>Patricia Moore</strong>, Colleague</p>
+                </div>
+                <div class="tr-card">
+                    <p class="tr-text">She read to us every Friday afternoon even when it was not part of the
+                        curriculum. Because of her, I have loved books my entire life.</p>
+                    <p class="tr-by">&mdash; <strong>Robert Kim</strong>, Former Student, 1991</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEAVE A TRIBUTE -->
+    <section class="sec form-sec">
+        <div class="wrap">
+            <span class="label rv">Share a Memory</span>
+            <h2 class="heading rv">Leave a Tribute</h2>
+            <div class="thin-rule rv"></div>
+
+            <div class="form-inner rv">
+                <form id="tf" onsubmit="doSubmit(event)">
+                    <div class="f-row">
+                        <div class="f-field"><label for="fn">Your Name</label><input id="fn" type="text"
+                                placeholder="Full name" required /></div>
+                        <div class="f-field"><label for="fr">Relationship</label><input id="fr" type="text"
+                                placeholder="Friend, Former student..." /></div>
+                    </div>
+                    <div class="f-field"><label for="fm">Your Message</label><textarea id="fm" rows="5"
+                            placeholder="Share a memory, a kind word, a story..." required></textarea></div>
+                    <button class="f-btn" type="submit">Submit Tribute</button>
+                </form>
+                <div class="f-ok" id="fok">Thank you. Your memory of Joyce is a gift to us all.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICE -->
+    <section class="sec sv-sec" id="service">
+        <div class="wrap">
+            <span class="label rv">Farewell Ceremony</span>
+            <h2 class="heading rv">Service Details</h2>
+            <div class="thin-rule rv"></div>
+
+            <div class="sv-grid rv">
+                <div class="sv-card"><span class="sv-icon">&#128330;</span><span class="sv-lbl">Date</span>
+                    <p class="sv-val">Saturday<br>February 24, 2024</p>
+                </div>
+                <div class="sv-card"><span class="sv-icon">&#128336;</span><span class="sv-lbl">Time</span>
+                    <p class="sv-val">11:00 AM<br>Reception to follow</p>
+                </div>
+                <div class="sv-card"><span class="sv-icon">&#9962;</span><span class="sv-lbl">Venue</span>
+                    <p class="sv-val">St. Agatha's Chapel<br>Burlington, Vermont</p>
+                </div>
+                <div class="sv-card"><span class="sv-icon">&#127807;</span><span class="sv-lbl">Attire</span>
+                    <p class="sv-val">Soft colours<br>warmly welcomed</p>
+                </div>
+            </div>
+
+            <p class="sv-note rv">In lieu of flowers, the family kindly requests donations to<br><strong>Millbrook
+                    Elementary School Library Fund</strong>.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <span class="f-logo">Joyce Katuki</span>
+        <span class="f-years">1942 &nbsp;&mdash;&nbsp; 2024</span>
+        <p class="f-verse">
+            "I am the resurrection and the life. Whoever believes in me, though he die, yet shall he live."
+            <em class="f-ref">John 11:25</em>
+        </p>
+        <p class="f-credit">Created with love by the  family &middot; 2024</p>
+    </footer>
+
+    <script>
+        // Nav
+        window.addEventListener('scroll', function () { document.getElementById('nav').classList.toggle('solid', scrollY > 60) });
+
+        // Reveal on scroll
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target) } });
+        }, { threshold: .12 });
+        document.querySelectorAll('.rv,.rvl,.tl-item,.tr-card,.eu-body p,.eu-body .pullquote').forEach(function (el, i) {
+            el.style.transitionDelay = (i * 0.06) + 's'; io.observe(el);
+        });
+
+        // Gallery tabs
+        document.getElementById('gtabs').addEventListener('click', function (e) {
+            if (!e.target.classList.contains('gtab')) return;
+            document.querySelectorAll('.gtab').forEach(function (t) { t.classList.remove('active') });
+            e.target.classList.add('active');
+            var f = e.target.dataset.f;
+            document.querySelectorAll('.photo').forEach(function (p) {
+                var show = f === 'all' || p.dataset.cat === f;
+                p.style.opacity = show ? '1' : '0.08';
+                p.style.pointerEvents = show ? 'auto' : 'none';
+                p.style.transition = 'opacity .4s ease';
+            });
+        });
+
+        // Lightbox
+        var lb = document.getElementById('lb'), lbm = document.getElementById('lbm'), lbi = document.getElementById('lbi'), lbc = document.getElementById('lbc'), cur = 0, vis = [];
+        function getVis() { return Array.from(document.querySelectorAll('.photo')).filter(function (p) { return parseFloat(p.style.opacity || 1) > 0.5 }) }
+        function openLb(i) { vis = getVis(); cur = i; render(); lb.classList.add('open'); document.body.style.overflow = 'hidden' }
+        function render() {
+            var item = vis[cur]; if (!item) return;
+            var img = item.querySelector('img'); lbm.innerHTML = '';
+            if (img) { var el = document.createElement('img'); el.src = img.src; el.alt = img.alt || ''; lbm.appendChild(el); }
+            else { var ph = document.createElement('div'); ph.className = 'lb-ph'; ph.textContent = item.dataset.cap || 'Photo'; lbm.appendChild(ph); }
+            lbi.innerHTML = '<p>' + xe(item.dataset.cap || '') + '</p><span>' + xe(item.dataset.date || '') + '</span>';
+            lbc.textContent = (cur + 1) + ' / ' + vis.length;
+        }
+        document.querySelectorAll('.photo').forEach(function (p) { p.addEventListener('click', function () { vis = getVis(); var i = vis.indexOf(p); openLb(i < 0 ? 0 : i) }) });
+        document.getElementById('lbx').addEventListener('click', closeLb);
+        lb.addEventListener('click', function (e) { if (e.target === lb) closeLb() });
+        document.getElementById('lbp').addEventListener('click', function (e) { e.stopPropagation(); cur = (cur - 1 + vis.length) % vis.length; render() });
+        document.getElementById('lbn').addEventListener('click', function (e) { e.stopPropagation(); cur = (cur + 1) % vis.length; render() });
+        document.addEventListener('keydown', function (e) {
+            if (!lb.classList.contains('open')) return;
+            if (e.key === 'Escape') closeLb();
+            if (e.key === 'ArrowLeft') { cur = (cur - 1 + vis.length) % vis.length; render() }
+            if (e.key === 'ArrowRight') { cur = (cur + 1) % vis.length; render() }
+        });
+        function closeLb() { lb.classList.remove('open'); document.body.style.overflow = '' }
+
+        // Form
+        function doSubmit(e) {
+            e.preventDefault();
+            var name = document.getElementById('fn').value.trim(), rel = document.getElementById('fr').value.trim(), msg = document.getElementById('fm').value.trim();
+            var card = document.createElement('div'); card.className = 'tr-card';
+            card.innerHTML = '<p class="tr-text">' + xe(msg) + '</p><p class="tr-by">&mdash; <strong>' + xe(name) + '</strong>' + (rel ? ', ' + xe(rel) : '') + '</p>';
+            document.getElementById('tg').prepend(card);
+            setTimeout(function () { card.classList.add('vis') }, 50);
+            document.getElementById('tf').style.display = 'none';
+            document.getElementById('fok').classList.add('show');
+        }
+        function xe(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') }
+    </script>
+</body>
+
+</html>
